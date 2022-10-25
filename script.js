@@ -1,4 +1,5 @@
-const addBtn = document.getElementById('add');
+const addBtn = document.getElementById('form');
+// const addBtn = document.getElementById('add');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
 const booksList = JSON.parse(localStorage.getItem('books')) || [];
@@ -48,10 +49,9 @@ class Book {
       const deleteBtn = document.querySelectorAll('.remove');
       deleteBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
-          if(Book.removeBook(btn.id)){
+          if (Book.removeBook(btn.id)) {
             btn.parentElement.remove();
-          }
-          else{
+          } else {
             btn.classList.add('disabled');
           }
         });
@@ -61,14 +61,18 @@ class Book {
 }
 
 // Function to add book to the list
-addBtn.addEventListener('click', () => {
-//   e.preventDefault();
+addBtn.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const msg = document.querySelector('.error-message');
+  function clear() { msg.innerHTML = ''; }
 
   const title = document.getElementById('title');
   const author = document.getElementById('author');
   const id = booksList.length + 1;
   if (title.value === '' || author.value === '') {
-    window.alert('Please enter the book title and author');
+    msg.innerHTML = 'Please enter the book title and author';
+    setTimeout(clear, 2000);
   } else {
     const b = new Book(id, title.value, author.value);
     Book.addBook(b);
