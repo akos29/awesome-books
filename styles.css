@@ -22,16 +22,20 @@ h1 {
   margin-bottom: 15px;
 }
 
-.list_container :nth-child(odd) {
-  background-color: rgb(202, 200, 200);
-}
-
 .book_list {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 7px 0;
+}
+
+.book_list:nth-child(2n) {
+  background-color: white;
+}
+
+.book_list:nth-child(2n+1) {
+  background-color: rgb(202, 200, 200);
 }
 
 .book_list span {
@@ -83,4 +87,10 @@ h2 {
 
 #add:hover {
   scale: 1.01;
+}
+
+.disabled {
+  background-color: black;
+  text-decoration: line-through;
+  color: red;
 }
