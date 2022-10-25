@@ -25,7 +25,7 @@ function refresh() {
 
 // Remove a book with id from the page book list
 function deleteBook(id) {
-  booksList = booksList.filter((item) => item.id !== parseInt(id));
+  booksList = booksList.filter((item) => item.id !== parseInt(id, 10));
   refresh();
 }
 
