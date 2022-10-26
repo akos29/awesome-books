@@ -1,3 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav_list {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px 10px;
+  margin: 3px 3px 30px 3px;
+}
+
+.nav_container ul {
+  list-style: none;
+  display: flex;
+  
+}
+
+.list_item:not(:last-child) {
+  color: black;
+  padding-right: 7px;
+  margin-right: 10px;
+  border-right: 2px solid black;
+}
+
+.nav_links:hover {
+  color: rgb(221, 23, 23);
+}
+
+.nav_links:focus {
+  color: rgb(6, 6, 227);
+}
+
+.nav_links {
+  text-decoration: none;
+  color: black
+}
+
+
+
 .main_container {
   display: flex;
   flex-direction: column;
@@ -7,19 +56,18 @@
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
   text-align: center;
 }
 
 .list_container {
-  align-self: flex-start;
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 2px solid #000;
-  width: 100%;
-  margin-bottom: 15px;
+  width: 95%;
+  margin: 20px 0;
 }
 
 .book_list {
@@ -43,13 +91,13 @@ h1 {
 }
 
 .book_text {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.1rem;
 }
 
 .book_list button {
   margin-right: 2%;
   box-shadow: 2px 2px 3px black;
+  padding: 2px 15px;
 }
 
 hr {
@@ -59,16 +107,21 @@ hr {
 }
 
 h2 {
-  font-family: 'Roboto', sans-serif;
   text-align: center;
+}
+
+.add_book {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 #form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
+  gap: 20px;
 }
 
 .add_book input {
@@ -83,6 +136,7 @@ h2 {
   align-self: flex-end;
   border: 1px solid black;
   box-shadow: 3px 2px 2px black;
+  padding: 2px 15px;
 }
 
 #add:hover {
@@ -105,3 +159,25 @@ h2 {
 .success {
   color: green;
 }
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;  
+  margin-bottom: 20px;
+}
+
+.contact_links {
+  color: black;
+  text-decoration: none;
+}
+
+.footer {
+  border: 2px solid black;
+  padding: 10px 10px;
+  margin: 30px 3px 3 3px;
+}
+
+
