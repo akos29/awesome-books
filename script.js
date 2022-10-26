@@ -43,7 +43,7 @@ class Book {
 
     books.forEach((book) => {
       const bookMarkup = `<div class="book_list">
-        <span class="book_text">${book.title} by ${book.author} </span>
+        <span class="book_text">"${book.title}" by ${book.author} </span>
         <button class="remove" id=${book.id}>Remove</button>
         </div>`;
       listContainer.innerHTML += bookMarkup;
