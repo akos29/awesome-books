@@ -109,8 +109,8 @@ function openPage(i) {
   addBookContainer.style.display = 'none';
   contactContainer.style.display = 'none';
   bookListContainer.style.display = 'none';
-  if(linkItem[i].classList)
   linkItem[i].classList.add('active');
+
   if (i === 1) {
     addBookContainer.style.display = 'flex';
   } else if (i === 2) {
