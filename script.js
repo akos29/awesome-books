@@ -1,7 +1,6 @@
 const form = document.getElementById('form');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
-const booksList = JSON.parse(localStorage.getItem('books')) || [];
 
 class Book {
   constructor(id, title, author) {
@@ -28,14 +27,15 @@ class Book {
 
   static removeBook(id) {
     const books = Book.getBooks();
+    let flag = false;
     books.forEach((book, index) => {
       if (book.id === parseInt(id, 10)) {
         books.splice(index, 1);
-        return true;
+        flag = true;
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
-    return false;
+    return flag;
   }
 
   static displayBooks() {
@@ -50,8 +50,8 @@ class Book {
       const deleteBtn = document.querySelectorAll('.remove');
       deleteBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
-            const res=Book.removeBook(btn.id)
-            btn.parentElement.remove();
+          const res = Book.removeBook(btn.id);
+          btn.parentElement.remove();
           if (res) {
             btn.parentElement.remove();
           } else {
@@ -72,7 +72,7 @@ form.addEventListener('submit', async (e) => {
 
   const title = document.getElementById('title');
   const author = document.getElementById('author');
-  const books=JSON.parse(localStorage.getItem('books')) || [];
+  const books = JSON.parse(localStorage.getItem('books')) || [];
   const id = books.length + 1;
   if (title.value === '' || author.value === '') {
     msg.classList.remove('success');
@@ -85,9 +85,8 @@ form.addEventListener('submit', async (e) => {
     msg.classList.add('success');
     msg.innerHTML = 'The book is added successfully';
     setTimeout(clear, 2000);
-    listContainer.innerHTML='';
+    listContainer.innerHTML = '';
     Book.displayBooks();
-
   }
 });
 
