@@ -1,14 +1,13 @@
 const form = document.getElementById('form');
-// const addBtn = document.getElementById('add');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
 const booksList = JSON.parse(localStorage.getItem('books')) || [];
+
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
-    // localStorage.setItem('books', JSON.stringify(booksList));
   }
 
   static addBook(book) {
@@ -23,7 +22,6 @@ class Book {
       books = [];
     } else {
       books = JSON.parse(localStorage.getItem('books'));
-      console.log("Get Book",books);
     }
     return books;
   }
@@ -37,7 +35,6 @@ class Book {
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
-    // Book.displayBooks();
     return false;
   }
 
@@ -54,8 +51,6 @@ class Book {
       deleteBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
             const res=Book.removeBook(btn.id)
-            console.log(res)
-            console.log(btn.id)
             btn.parentElement.remove();
           if (res) {
             btn.parentElement.remove();
@@ -90,9 +85,10 @@ form.addEventListener('submit', async (e) => {
     msg.classList.add('success');
     msg.innerHTML = 'The book is added successfully';
     setTimeout(clear, 2000);
+    listContainer.innerHTML='';
+    Book.displayBooks();
+
   }
 });
 
 Book.displayBooks();
-console.log(booksList)
-console.log(Book.books)
