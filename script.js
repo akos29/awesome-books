@@ -1,4 +1,4 @@
-const addBtn = document.getElementById('form');
+const form = document.getElementById('form');
 // const addBtn = document.getElementById('add');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
@@ -23,6 +23,7 @@ class Book {
       books = [];
     } else {
       books = JSON.parse(localStorage.getItem('books'));
+      console.log("Get Book",books);
     }
     return books;
   }
@@ -32,9 +33,12 @@ class Book {
     books.forEach((book, index) => {
       if (book.id === parseInt(id, 10)) {
         books.splice(index, 1);
+        return true;
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
+    // Book.displayBooks();
+    return false;
   }
 
   static displayBooks() {
@@ -49,7 +53,11 @@ class Book {
       const deleteBtn = document.querySelectorAll('.remove');
       deleteBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
-          if (Book.removeBook(btn.id)) {
+            const res=Book.removeBook(btn.id)
+            console.log(res)
+            console.log(btn.id)
+            btn.parentElement.remove();
+          if (res) {
             btn.parentElement.remove();
           } else {
             btn.classList.add('disabled');
@@ -61,7 +69,7 @@ class Book {
 }
 
 // Function to add book to the list
-addBtn.addEventListener('submit', async (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const msg = document.querySelector('.error-message');
@@ -69,14 +77,22 @@ addBtn.addEventListener('submit', async (e) => {
 
   const title = document.getElementById('title');
   const author = document.getElementById('author');
-  const id = booksList.length + 1;
+  const books=JSON.parse(localStorage.getItem('books')) || [];
+  const id = books.length + 1;
   if (title.value === '' || author.value === '') {
+    msg.classList.remove('success');
     msg.innerHTML = 'Please enter the book title and author';
     setTimeout(clear, 2000);
   } else {
     const b = new Book(id, title.value, author.value);
     Book.addBook(b);
+    form.reset();
+    msg.classList.add('success');
+    msg.innerHTML = 'The book is added successfully';
+    setTimeout(clear, 2000);
   }
 });
 
 Book.displayBooks();
+console.log(booksList)
+console.log(Book.books)
