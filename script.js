@@ -1,7 +1,20 @@
 const form = document.getElementById('form');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
+const bookListContainer = document.querySelector('.list_wrapper');
+const addBookContainer = document.querySelector('.add_book');
+const contactContainer = document.querySelector('.contact');
+const linkItem = document.querySelectorAll('.nav_links');
+const date = document.getElementById('date');
 
+const today =new Date();
+console.log(today.toLocaleTimeString())
+
+date.innerHTML=today.toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+}) + " " + today.toLocaleTimeString();
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -91,3 +104,56 @@ form.addEventListener('submit', async (e) => {
 });
 
 Book.displayBooks();
+
+
+//Working with SPA
+
+function openPage(i){
+    addBookContainer.style.display='none';
+    contactContainer.style.display='none';
+    bookListContainer.style.display='none';
+    if(i==1){
+      addBookContainer.style.display='flex';
+    }
+    else if(i==2){
+      contactContainer.style.display='flex';
+    }
+    else{
+      bookListContainer.style.display='flex';
+    }
+
+
+  
+}
+
+let i=0;
+linkItem.forEach((item)=>{
+  
+  item.addEventListener('click',function(){
+    console.log((i));
+    openPage(i);
+  })
+  
+  i++;
+  
+})
+
+for(let i=0; i<linkItem.length;i++){
+ 
+    linkItem[i].addEventListener('click', () =>{
+   openPage(i);
+});
+}
+//   linkItem.addEventListener('click',openPage(i))
+// }
+
+// deleteBtn.forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     const res = Book.removeBook(btn.id);
+//     btn.parentElement.remove();
+//     if (res) {
+//       btn.parentElement.remove();
+//     } else {
+//       btn.classList.add('disabled');
+//     }
+//   });
