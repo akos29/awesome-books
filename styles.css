@@ -16,19 +16,18 @@ header {
 }
 
 .nav_list {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   border: 2px solid black;
   border-radius: 3px;
   padding: 10px 10px;
-  margin: 3px 3px 0px 3px;
+  margin: 3px 3px 0 3px;
 }
 
 .nav_container ul {
   list-style: none;
   display: flex;
-  
 }
 
 .list_item:not(:last-child) {
@@ -38,22 +37,23 @@ header {
   border-right: 2px solid black;
 }
 
+.nav_links {
+  text-decoration: none;
+  color: black;
+}
+
 .nav_links:hover {
   color: rgb(221, 23, 23);
 }
 
-.nav_links:focus {
+.nav_links:focus,
+.active {
   color: rgb(6, 6, 227);
 }
 
-.nav_links {
-  text-decoration: none;
-  color: black
-}
-
 #date {
-  align-self:flex-end ;
-  padding-right:13px ;
+  align-self: flex-end;
+  padding-right: 13px;
 }
 
 .main_container {
@@ -183,7 +183,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin:10px 15px ;
+  margin: 10px 15px;
 }
 
 .contact_links {
@@ -195,7 +195,5 @@ h2 {
   border: 2px solid black;
   border-radius: 3px;
   padding: 10px 10px;
-  margin: 30px 3px 3 3px;
+  margin: 30px 3px 3px 3px;
 }
-
-
