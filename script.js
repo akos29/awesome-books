@@ -1,7 +1,18 @@
 const form = document.getElementById('form');
 // Declaring varibale for the books' container
 const listContainer = document.querySelector('.list_container');
+const bookListContainer = document.querySelector('.list_wrapper');
+const addBookContainer = document.querySelector('.add_book');
+const contactContainer = document.querySelector('.contact');
+const linkItem = document.querySelectorAll('.nav_links');
+const date = document.getElementById('date');
 
+const today = new Date();
+date.innerHTML = `${today.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+})} ${today.toLocaleTimeString()}`;
 class Book {
   constructor(id, title, author) {
     this.id = id;
@@ -43,7 +54,7 @@ class Book {
 
     books.forEach((book) => {
       const bookMarkup = `<div class="book_list">
-        <span class="book_text">${book.title} by ${book.author} </span>
+        <span class="book_text">"${book.title}" by ${book.author} </span>
         <button class="remove" id=${book.id}>Remove</button>
         </div>`;
       listContainer.innerHTML += bookMarkup;
@@ -91,3 +102,26 @@ form.addEventListener('submit', async (e) => {
 });
 
 Book.displayBooks();
+
+// Working with SPA
+
+function openPage(i) {
+  addBookContainer.style.display = 'none';
+  contactContainer.style.display = 'none';
+  bookListContainer.style.display = 'none';
+  linkItem[i].classList.add('active');
+
+  if (i === 1) {
+    addBookContainer.style.display = 'flex';
+  } else if (i === 2) {
+    contactContainer.style.display = 'flex';
+  } else {
+    bookListContainer.style.display = 'flex';
+  }
+}
+
+for (let i = 0; i < linkItem.length; i += 1) {
+  linkItem[i].addEventListener('click', () => {
+    openPage(i);
+  });
+}
