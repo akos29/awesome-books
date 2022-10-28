@@ -6,7 +6,7 @@ const addBookContainer = document.querySelector('.add_book');
 const contactContainer = document.querySelector('.contact');
 const linkItem = document.querySelectorAll('.nav_links');
 const date = document.getElementById('date');
-const time = document.getElementById('time');
+
 
 
 const today = new Date();
@@ -14,7 +14,9 @@ date.innerHTML = `${today.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
-})} <span class="time"></span> `;
+})} <span id="time"></span> `;
+
+const time = document.getElementById('time');
 
 setInterval (function(){time.innerHTML=today.toLocaleTimeString()},1000);
 class Book {
