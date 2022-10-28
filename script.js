@@ -14,7 +14,7 @@ date.innerHTML = `${today.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
-})} `;
+})} <span class="time"></span> `;
 
 setInterval (function(){time.innerHTML=today.toLocaleTimeString()},1000);
 class Book {
