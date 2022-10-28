@@ -6,13 +6,17 @@ const addBookContainer = document.querySelector('.add_book');
 const contactContainer = document.querySelector('.contact');
 const linkItem = document.querySelectorAll('.nav_links');
 const date = document.getElementById('date');
+const time = document.getElementById('time');
+
 
 const today = new Date();
 date.innerHTML = `${today.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
-})} ${today.toLocaleTimeString()}`;
+})} `;
+
+setInterval (function(){time.innerHTML=today.toLocaleTimeString()},1000);
 class Book {
   constructor(id, title, author) {
     this.id = id;
