@@ -1,39 +1,41 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books
 
-> Description the project.
+> A simple UI project built to create a booklist.
 
 
 ## Built With
 
-- HTML, CSS and JS
-- Frameworks: None
-- Technologies used: Linters
+#### Major languages:
+>- [x] HTML5
+>- [x] CSS3
+>- [x] Javascript
+
+#### Technologies used
+>- [x] Linters
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://akos29.github.io/awesome-books/)
+[Live Demo Link](https://ofarouq310.github.io/Awesome_Books/)
 
 
 ## Getting Started
-
-**Welcome to our Awesome Books website.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- A web browser (like Google Chrome, Opera...).
+- A code editor (like Atom, VScode...).
+
 ### Setup
 
-### Install
-
-### Usage
-
-### Run tests
+To setup the webpage locally: click on "**Code**" (dropdown list) then "**Download ZIP**".
 
 ### Deployment
+
+To run the project open the downloaded folder (after extraction) then run the "**index.html**" file in your browser.
 
 
 
@@ -63,12 +65,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- All thankfulness to Microverse for equipping me with such skills to utilize in real-world projects and applications. 
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./LICENSE.md) licensed.
